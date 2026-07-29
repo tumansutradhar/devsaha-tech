@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN SYSTEM — DevSaha Tech
+   Logo-derived palette: Deep Violet #7B2FBE → Lavender #C77DFF
+   Base: Near-black #050507 | Dark Surface #0D0D14
+   Accent: Electric Violet #9333EA (primary), Soft Lavender #C084FC (secondary)
+   ============================================================ */
+
+@theme {
+  /* Brand Colours */
+  --color-brand-primary: #9333EA;       /* electric violet — CTAs, accents */
+  --color-brand-secondary: #C084FC;     /* soft lavender — highlights */
+  --color-brand-deep: #6D28D9;          /* deep violet — hover states */
+  --color-brand-glow: #A855F7;          /* glow colour */
+
+  /* Backgrounds */
+  --color-brand-background: var(--background);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-surface-2: var(--brand-surface-2);
+
+  /* Text */
+  --color-brand-text: var(--brand-text);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-subtle: var(--brand-subtle);
+
+  /* Borders */
+  --color-brand-border: var(--brand-border);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── DARK MODE (default & forced) ─── */
+@layer base {
+  :root,
+  .dark {
+    --background: #050507;
+    --foreground: #F0EEFF;
+
+    --brand-surface: #0D0D14;
+    --brand-surface-2: #13131F;
+    --brand-border: rgba(147, 51, 234, 0.18);
+    --brand-border-strong: rgba(192, 132, 252, 0.25);
+
+    --brand-text: #F0EEFF;
+    --brand-muted: #9B99B8;
+    --brand-subtle: #5C5A75;
+  }
+}
+
+/* ─── GLOBAL BASE ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  @apply antialiased scroll-smooth;
+  selection-color: white;
+}
+
+::selection {
+  background: #9333EA;
+  color: white;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D14;
+}
+::-webkit-scrollbar-thumb {
+  background: #9333EA;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C084FC;
+}
+
+/* ─── GLASSMORPHISM ─── */
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    background: rgba(13, 13, 20, 0.7);
+    border: 1px solid rgba(147, 51, 234, 0.18);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    background: rgba(13, 13, 20, 0.88);
+    border: 1px solid rgba(192, 132, 252, 0.22);
+  }
+
+  /* Neon glow — logo violet */
+  .neon-glow {
+    box-shadow:
+      0 0 12px rgba(147, 51, 234, 0.45),
+      0 0 32px rgba(147, 51, 234, 0.2),
+      inset 0 0 8px rgba(147, 51, 234, 0.15);
+  }
+
+  .neon-glow-soft {
+    box-shadow:
+      0 0 8px rgba(192, 132, 252, 0.3),
+      0 0 20px rgba(147, 51, 234, 0.15);
+  }
+
+  /* Text glow */
+  .text-glow {
+    text-shadow:
+      0 0 20px rgba(192, 132, 252, 0.6),
+      0 0 40px rgba(147, 51, 234, 0.3);
+  }
+
+  .text-glow-subtle {
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+  }
+}
+
+/* ─── BACKGROUND TEXTURES ─── */
+
+/* Micro grid — subtle circuit board feel */
+.bg-cyber-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(147, 51, 234, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(147, 51, 234, 0.04) 1px, transparent 1px);
+}
+
+/* Radial violet glow — logo-derived */
+.bg-radial-glow {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(147, 51, 234, 0.12) 0%,
+    rgba(109, 40, 217, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+.bg-radial-glow-center {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 50%,
+    rgba(147, 51, 234, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+/* Noise texture overlay for depth */
+.bg-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── GRADIENT UTILITIES ─── */
+.gradient-brand {
+  background: linear-gradient(135deg, #9333EA 0%, #C084FC 100%);
+}
+
+.gradient-brand-text {
+  background: linear-gradient(135deg, #C084FC 0%, #9333EA 60%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
