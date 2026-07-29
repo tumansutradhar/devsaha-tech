@@ -21,7 +21,7 @@ const products = [
     title: "Cyber Bandhu",
     tagline: "Doorstep Digital Help for Students",
     summary: "A platform that enables students in rural and semi-urban areas to request secure and affordable in-person help with online forms and digital tasks.",
-    link: "https://github.com/tumansutradhar/cyber_bandhu"
+    link: "https://cyber-bandhu.netlify.app/"
   },
   {
     title: "EduManage",
