@@ -71,7 +71,7 @@ export function ServicesGrid() {
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 className="w-full grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6 px-4 py-6 text-left"
               >
-                <span className="u-index transition-colors duration-200 text-brand-muted">
+                <span className="u-index transition-colors duration-200 text-brand-muted font-semibold">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className={`u-display text-xl sm:text-3xl md:text-4xl truncate transition-colors duration-200 ${isOpen ? "text-brand-primary" : "group-hover:text-brand-primary"}`}>
