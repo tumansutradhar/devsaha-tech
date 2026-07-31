@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
                 type="email"
                 required
                 className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
-                placeholder="devsahatech@gmail.com"
+                placeholder="info@devsaha.tech"
               />
             </div>
           </div>

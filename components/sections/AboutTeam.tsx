@@ -12,8 +12,8 @@ const team = [
     role: "Founder & Lead Full Stack Engineer",
     bio: "Ranadeb built DevSaha Tech with one mission: to deliver engineering that actually works in production. He architects scalable backends, leads client engagements, and writes code that ships on time.",
     image: "/team-ranadeb.png",
-    linkedin: "#",
-    email: "mailto:",
+    linkedin: "https://www.linkedin.com/in/ranadebsaha",
+    email: "mailto:ranadeb@devsaha.tech",
     portfolio: "https://ranadebsaha.netlify.app/",
     gradient: "from-brand-primary/20 to-brand-secondary/10",
   },
@@ -22,8 +22,8 @@ const team = [
     role: "UI/UX Designer",
     bio: "Tuman bridges the gap between business goals and user experience. He crafts interfaces that are both visually sharp and deeply intuitive — turning complex flows into simple, beautiful products.",
     image: "/team-tuman.png",
-    linkedin: "#",
-    email: "mailto:",
+    linkedin: "https://in.linkedin.com/in/tumansutradhar",
+    email: "mailto:tuman@devsaha.tech",
     portfolio: "https://tumansutradhar.me",
     gradient: "from-blue-500/20 to-brand-primary/10",
   },
@@ -32,8 +32,8 @@ const team = [
     role: "Software Development Engineer",
     bio: "Sharanya is the team's execution engine — building clean, type-safe frontend systems and integrating APIs with precision. He ensures every feature we ship is bulletproof on all devices.",
     image: "/team-sharanya-v2.png",
-    linkedin: "#",
-    email: "mailto:",
+    linkedin: "https://www.linkedin.com/in/sharanya-chowdhury",
+    email: "mailto:sharanya@devsaha.tech",
     portfolio: "https://www.sharanya.tech/",
     gradient: "from-brand-secondary/20 to-blue-500/10",
   },
@@ -119,6 +119,8 @@ export function AboutTeam() {
                   </a>
                   <a
                     href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon-chip-sm text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary"
                     aria-label={`${member.name} on LinkedIn`}
                   >

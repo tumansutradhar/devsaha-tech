@@ -74,9 +74,9 @@ export function ServicesGrid() {
                 <span className="u-index transition-colors duration-200 text-brand-muted font-semibold">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className={`u-display text-xl sm:text-3xl md:text-4xl truncate transition-colors duration-200 ${isOpen ? "text-brand-primary" : "group-hover:text-brand-primary"}`}>
+                <h3 className={`u-display text-xl sm:text-3xl md:text-4xl truncate transition-colors duration-200 ${isOpen ? "text-brand-primary" : "group-hover:text-brand-primary"}`}>
                   {service.title}
-                </span>
+                </h3>
                 <IoMdAdd
                   size={24}
                   className={`transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}

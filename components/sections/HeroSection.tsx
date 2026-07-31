@@ -40,7 +40,10 @@ export function HeroSection() {
 
       {/* Headline */}
       <div className="site-container relative z-10 py-12 sm:py-16 lg:py-20 flex-1 flex items-center">
-        <motion.h1
+        <h1 className="sr-only">
+          DevSaha Tech - Best Website Development Company in Bardhaman, Katwa, and West Bengal. We offer full stack web development, scalable backends, and budget website solutions.
+        </h1>
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -50,7 +53,7 @@ export function HeroSection() {
           <br />
           your business can{" "}
           <span className="bg-brand-primary text-black px-2 inline-block">scale</span> on.
-        </motion.h1>
+        </motion.h2>
       </div>
 
       {/* Bottom row: lede + CTA + stats */}

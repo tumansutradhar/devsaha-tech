@@ -15,14 +15,14 @@ const contactInfo = [
   {
     icon: MdOutlineLocalPhone,
     label: "WhatsApp / Phone",
-    value: "+91 62951 11477",
+    value: "+91 62951 11477, +91 77192 49758",
     href: "https://wa.me/916295111477",
   },
   {
     icon: IoMailSharp,
     label: "Email",
-    value: "devsahatech@gmail.com",
-    href: "mailto:devsahatech@gmail.com",
+    value: "info@devsaha.tech",
+    href: "mailto:info@devsaha.tech",
   },
   {
     icon: RiMapPinLine,
@@ -182,20 +182,35 @@ export function ContactCTA() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-brand-text mb-2" htmlFor="contact-project-type">
-                    Project Type
-                  </label>
-                  <select
-                    id="contact-project-type"
-                    name="projectType"
-                    className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
-                  >
-                    <option value="" className="bg-gray-900">Select project type</option>
-                    {projectTypes.map((t) => (
-                      <option key={t} value={t} className="bg-gray-900">{t}</option>
-                    ))}
-                  </select>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-brand-text mb-2" htmlFor="contact-phone">
+                      Phone Number
+                    </label>
+                    <input
+                      id="contact-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+91 12345 67890"
+                      required
+                      className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-brand-text mb-2" htmlFor="contact-project-type">
+                      Project Type
+                    </label>
+                    <select
+                      id="contact-project-type"
+                      name="projectType"
+                      className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                    >
+                      <option value="" className="bg-gray-900">Select project type</option>
+                      {projectTypes.map((t) => (
+                        <option key={t} value={t} className="bg-gray-900">{t}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* <div>

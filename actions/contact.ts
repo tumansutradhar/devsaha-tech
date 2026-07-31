@@ -10,8 +10,15 @@ export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const projectType = formData.get('projectType') as string;
-    const budget = formData.get('budget') as string;
-    const message = formData.get('message') as string;
+    const phone = formData.get('phone') as string;
+    let message = formData.get('message') as string;
+    
+    // Provide a default for budget since it was removed from the UI but is NOT NULL in DB
+    const budget = (formData.get('budget') as string) || 'Not specified';
+
+    if (phone) {
+      message = `Phone: ${phone}\n\n${message}`;
+    }
 
     if (!name || !email) {
       return { success: false, error: 'Name and Email are required.' };

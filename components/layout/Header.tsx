@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Hamburger } from "@/components/layout/Hamburger"
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 export function Header() {
@@ -81,7 +81,7 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center">
             <Button asChild size="sm" className="u-mono text-xs px-5 py-2 h-9">
-              <Link href="#contact">Let&apos;s Talk</Link>
+              <Link href="/#contact">Let&apos;s Talk</Link>
             </Button>
           </div>
 
@@ -141,7 +141,7 @@ export function Header() {
 
                 <div className="mt-2 pt-2 px-4">
                   <Button asChild className="w-full u-mono text-xs">
-                    <Link href="#contact" onClick={() => setMenuOpen(false)}>
+                    <Link href="/#contact" onClick={() => setMenuOpen(false)}>
                       Let&apos;s Talk
                     </Link>
                   </Button>

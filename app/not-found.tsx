@@ -39,7 +39,7 @@ export default function NotFound() {
           </a>
           <a href="https://wa.me/916295111477" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-secondary transition-colors">
             <MdOutlineLocalPhone />
-            +91 62951 11477
+            +91 62951 11477, +91 77192 49758
           </a>
         </div>
       </div>

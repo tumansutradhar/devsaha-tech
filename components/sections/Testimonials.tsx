@@ -7,20 +7,20 @@ import { IoMdStarOutline, IoMdQuote } from "react-icons/io"
 const testimonials = [
   {
     quote: "DevSaha Tech completely transformed how our marketplace handles real-time geo-queries. What used to take seconds now responds in under 50ms. Ranadeb and his team are the real deal — they delivered exactly what they promised, on schedule.",
-    name: "Arjun Mehta",
+    name: "Sarnojit Pal",
     role: "Co-founder",
     company: "HaatBazar",
     rating: 5,
-    initial: "A",
+    initial: "S",
     color: "bg-brand-primary",
   },
   {
     quote: "We needed a real-time community alert system built fast, and DevSaha delivered a bulletproof WebSocket architecture in just weeks. Communication was outstanding throughout — we always knew exactly where things stood.",
-    name: "Priya Sharma",
+    name: "Rohit Ghosh",
     role: "Product Lead",
     company: "Cyber Bandhu",
     rating: 5,
-    initial: "P",
+    initial: "R",
     color: "bg-brand-secondary",
   },
 ]
@@ -75,7 +75,7 @@ export function Testimonials() {
                 </div>
                 <div>
                   <p className="font-semibold text-brand-text text-sm">{t.name}</p>
-                  <p className="text-brand-muted text-xs">{t.role}, {t.company}</p>
+                  {/* <p className="text-brand-muted text-xs">{t.company}</p> */}
                 </div>
               </div>
             </motion.div>
