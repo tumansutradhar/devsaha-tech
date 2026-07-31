@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Lock, Mail, ArrowRight } from 'lucide-react';
+import { IoLockClosedSharp, IoMailSharp } from "react-icons/io5";
+import { CgArrowRight } from "react-icons/cg";
 import { Button } from '@/components/ui/button';
 import { loginAdmin } from '@/actions/admin';
 
@@ -18,7 +19,7 @@ export default function AdminLoginPage() {
     setError('');
 
     const formData = new FormData(e.currentTarget);
-    
+
     try {
       const result = await loginAdmin(formData);
       if (result.success) {
@@ -46,7 +47,7 @@ export default function AdminLoginPage() {
       >
         <div className="text-center mb-8">
           <div className="w-16 h-16 rounded-2xl glass border-brand-primary/30 flex items-center justify-center mx-auto mb-4 text-brand-secondary neon-glow">
-            <Lock size={32} />
+            <IoLockClosedSharp size={32} />
           </div>
           <h1 className="text-3xl font-bold text-brand-text mb-2">Admin Portal</h1>
           <p className="text-brand-muted text-sm">Sign in to access your dashboard</p>
@@ -59,7 +60,7 @@ export default function AdminLoginPage() {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-muted/70">
-                <Mail size={18} />
+                <IoMailSharp size={18} />
               </div>
               <input
                 id="email"
@@ -78,7 +79,7 @@ export default function AdminLoginPage() {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-muted/70">
-                <Lock size={18} />
+                <IoLockClosedSharp size={18} />
               </div>
               <input
                 id="password"
@@ -97,7 +98,7 @@ export default function AdminLoginPage() {
 
           <Button type="submit" disabled={loading} className="w-full gap-2 text-base py-3 disabled:opacity-70 mt-2">
             {loading ? 'Authenticating...' : 'Sign In'}
-            {!loading && <ArrowRight size={16} />}
+            {!loading && <CgArrowRight size={16} />}
           </Button>
         </form>
       </motion.div>

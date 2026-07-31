@@ -3,31 +3,35 @@
 import * as React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react"
+import { MdOutlineLocalPhone, MdCheckCircleOutline } from "react-icons/md";
+import { IoMailSharp } from "react-icons/io5";
+import { RiMapPinLine } from "react-icons/ri";
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { FiSend } from "react-icons/fi";
 import { Button } from "@/components/ui/button"
 import { submitContactForm } from "@/actions/contact"
 
 const contactInfo = [
   {
-    icon: Phone,
+    icon: MdOutlineLocalPhone,
     label: "WhatsApp / Phone",
     value: "+91 62951 11477",
     href: "https://wa.me/916295111477",
   },
   {
-    icon: Mail,
+    icon: IoMailSharp,
     label: "Email",
     value: "devsahatech@gmail.com",
     href: "mailto:devsahatech@gmail.com",
   },
   {
-    icon: MapPin,
+    icon: RiMapPinLine,
     label: "Location",
     value: "Katwa, West Bengal, India",
     href: "#",
   },
   {
-    icon: Clock,
+    icon: AiOutlineClockCircle,
     label: "Response Time",
     value: "We reply within 24 hours",
     href: "#",
@@ -44,13 +48,13 @@ const projectTypes = [
   "Other",
 ]
 
-const budgetRanges = [
-  "Under ₹50,000",
-  "₹50,000 – ₹1,50,000",
-  "₹1,50,000 – ₹5,00,000",
-  "₹5,00,000+",
-  "Let's discuss",
-]
+// const budgetRanges = [
+//   "Under ₹50,000",
+//   "₹50,000 – ₹1,50,000",
+//   "₹1,50,000 – ₹5,00,000",
+//   "₹5,00,000+",
+//   "Let's discuss",
+// ]
 
 export function ContactCTA() {
   const [submitted, setSubmitted] = useState(false)
@@ -61,9 +65,9 @@ export function ContactCTA() {
     e.preventDefault()
     setLoading(true)
     setError('')
-    
+
     const formData = new FormData(e.currentTarget)
-    
+
     try {
       const result = await submitContactForm(formData)
       if (result.success) {
@@ -79,11 +83,11 @@ export function ContactCTA() {
   }
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="section-spacing relative overflow-hidden">
       <div className="absolute inset-0 bg-cyber-grid opacity-30 z-0" />
       <div className="absolute inset-0 bg-radial-glow opacity-50 z-0" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="site-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: Heading + Contact Info */}
           <div>
@@ -111,8 +115,8 @@ export function ContactCTA() {
                       {...(isLink ? { href: item.href, target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="flex items-center gap-4 group"
                     >
-                      <div className="w-12 h-12 rounded-xl glass border-brand-primary/30 flex items-center justify-center flex-shrink-0 group-hover:neon-glow transition-all duration-300">
-                        <Icon size={20} className="text-brand-secondary" />
+                      <div className="icon-chip-lg shrink-0 group-hover:neon-glow">
+                        <Icon size={20} strokeLinecap="square" strokeLinejoin="miter" className="text-brand-secondary" />
                       </div>
                       <div>
                         <p className="text-xs text-brand-muted uppercase tracking-wider mb-0.5">{item.label}</p>
@@ -131,11 +135,11 @@ export function ContactCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="glass rounded-2xl p-8 border-brand-primary/25"
+            className="glass-card p-8"
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center py-12 gap-4">
-                <CheckCircle2 size={48} className="text-green-400" />
+                <MdCheckCircleOutline size={48} className="text-brand-success" />
                 <h3 className="text-2xl font-bold text-brand-text">Message Received!</h3>
                 <p className="text-brand-muted">
                   Thanks for reaching out. Ranadeb will personally review your project and respond within 24 hours.
@@ -160,7 +164,7 @@ export function ContactCTA() {
                       type="text"
                       placeholder="Rahul Kumar"
                       required
-                      className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                      className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
                     />
                   </div>
                   <div>
@@ -173,7 +177,7 @@ export function ContactCTA() {
                       type="email"
                       placeholder="you@company.com"
                       required
-                      className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                      className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
                     />
                   </div>
                 </div>
@@ -185,7 +189,7 @@ export function ContactCTA() {
                   <select
                     id="contact-project-type"
                     name="projectType"
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                    className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
                   >
                     <option value="" className="bg-gray-900">Select project type</option>
                     {projectTypes.map((t) => (
@@ -194,21 +198,21 @@ export function ContactCTA() {
                   </select>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-brand-text mb-2" htmlFor="contact-budget">
                     Budget Range
                   </label>
                   <select
                     id="contact-budget"
                     name="budget"
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
+                    className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm"
                   >
                     <option value="" className="bg-gray-900">Select budget range</option>
                     {budgetRanges.map((b) => (
                       <option key={b} value={b} className="bg-gray-900">{b}</option>
                     ))}
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-medium text-brand-text mb-2" htmlFor="contact-message">
@@ -219,16 +223,16 @@ export function ContactCTA() {
                     name="message"
                     rows={4}
                     placeholder="Describe your project goals, current challenges, and timeline..."
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm resize-none"
+                    className="w-full bg-black/40 border border-brand-border/40 px-4 py-3 text-brand-text placeholder:text-brand-muted/50 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm resize-none"
                   />
                 </div>
 
                 {error && (
-                  <p className="text-red-400 text-sm">{error}</p>
+                  <p className="text-brand-danger text-sm">{error}</p>
                 )}
 
                 <Button type="submit" disabled={loading} className="w-full gap-2 text-base py-3 disabled:opacity-70">
-                  <Send size={16} />
+                  <FiSend size={16} strokeLinecap="square" strokeLinejoin="miter" />
                   {loading ? 'Sending...' : 'Send Message'}
                 </Button>
 

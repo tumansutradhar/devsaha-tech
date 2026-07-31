@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Star, Quote } from "lucide-react"
+import { IoMdStarOutline, IoMdQuote } from "react-icons/io"
 
 const testimonials = [
   {
@@ -27,15 +27,15 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-brand-background relative">
+    <section id="testimonials" className="section-spacing bg-brand-background relative">
       <div className="absolute inset-0 bg-radial-glow opacity-30 z-0" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-xl mx-auto mb-16">
+      <div className="site-container relative z-10">
+        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4 leading-tight">
             What our clients say
           </h2>
-          <p className="text-lg text-brand-muted">
+          <p className="text-lg text-brand-muted leading-relaxed">
             Don&apos;t take our word for it — here&apos;s what the people who&apos;ve worked with us have to say.
           </p>
         </div>
@@ -48,10 +48,10 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="glass rounded-2xl p-8 border-brand-primary/20 relative group hover:border-brand-primary/40 transition-all duration-300"
+              className="glass-card-hover p-8 relative group"
             >
               {/* Quote icon */}
-              <Quote
+              <IoMdQuote
                 size={32}
                 className="text-brand-primary/20 absolute top-6 right-6 group-hover:text-brand-primary/40 transition-colors duration-300"
               />
@@ -59,7 +59,7 @@ export function Testimonials() {
               {/* Stars */}
               <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={14} className="text-yellow-400 fill-yellow-400" />
+                  <IoMdStarOutline key={j} size={14} className="text-brand-warning fill-brand-warning" />
                 ))}
               </div>
 
@@ -70,7 +70,7 @@ export function Testimonials() {
 
               {/* Attribution */}
               <div className="flex items-center gap-3 pt-5 border-t border-brand-border/20">
-                <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
+                <div className={`w-10 h-10 ${t.color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
                   {t.initial}
                 </div>
                 <div>

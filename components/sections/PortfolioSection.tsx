@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "framer-motion"
-import { ArrowUpRight, FolderGit2 } from "lucide-react"
+import { RiArrowRightUpLine } from "react-icons/ri";
+import styles from "./PortfolioCarousel.module.css"
 
 const products = [
   {
@@ -79,54 +79,142 @@ const products = [
   }
 ]
 
+// How far below the sticky nav the pinned block sits.
+const TOP_OFFSET = 96
+// How much scroll distance (px) it takes to scrub through all 12 cards.
+// Bigger = slower/more deliberate scroll; smaller = faster.
+const SCRUB_PX = 1600
+
 export function PortfolioSection() {
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
+  const stickyRef = React.useRef<HTMLDivElement>(null)
+  const itemRefs = React.useRef<Array<HTMLDivElement | null>>([])
+  const [active, setActive] = React.useState(0)
+  const [stickyHeight, setStickyHeight] = React.useState(760)
+
+  const applyProgress = React.useCallback((progress: number) => {
+    const p = Math.max(0, Math.min(progress, 1))
+    const newActive = Math.round(p * (products.length - 1))
+
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return
+      const zIndex = i === newActive ? products.length : products.length - Math.abs(i - newActive)
+      el.style.setProperty("--zIndex", String(zIndex))
+      el.style.setProperty("--active", String((i - newActive) / products.length))
+    })
+
+    setActive(newActive)
+  }, [])
+
+  // Drive the fan purely from page scroll position — no hover/drag needed.
+  React.useEffect(() => {
+    let raf = 0
+    const onScroll = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        const wrapper = wrapperRef.current
+        if (!wrapper) return
+        const rect = wrapper.getBoundingClientRect()
+        const progress = (TOP_OFFSET - rect.top) / SCRUB_PX
+        applyProgress(progress)
+      })
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll()
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      cancelAnimationFrame(raf)
+    }
+  }, [applyProgress])
+
+  // Keep the spacer's total height in sync with the pinned block's real height
+  // (heading + carousel + dots), so the release point lines up correctly.
+  React.useEffect(() => {
+    const measure = () => {
+      if (stickyRef.current) setStickyHeight(stickyRef.current.offsetHeight)
+    }
+    measure()
+    window.addEventListener("resize", measure)
+    return () => window.removeEventListener("resize", measure)
+  }, [])
+
+  const goTo = (i: number) => {
+    const wrapper = wrapperRef.current
+    if (!wrapper) return
+    const p = i / (products.length - 1)
+    const wrapperDocTop = wrapper.getBoundingClientRect().top + window.scrollY
+    const targetY = wrapperDocTop - TOP_OFFSET + p * SCRUB_PX
+    window.scrollTo({ top: targetY, behavior: "smooth" })
+  }
+
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-cyber-grid opacity-30 z-0 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-glow opacity-30 z-0 pointer-events-none" />
+    <section id="portfolio" className="relative bg-black py-20">
+      <div
+        ref={wrapperRef}
+        style={{ height: `${TOP_OFFSET + stickyHeight + SCRUB_PX}px` }}
+        className="relative"
+      >
+        <div ref={stickyRef} className="sticky bg-black" style={{ top: TOP_OFFSET }}>
+          <div className="site-container relative z-10 mb-10 text-center max-w-2xl mx-auto px-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-brand-text">
+              Our Products & Work
+            </h2>
+            <p className="text-lg text-brand-muted">
+              Explore the products we have built, from scalable full-stack applications to decentralized Web3 apps.
+            </p>
+          </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-brand-text text-glow">Our Products & Work</h2>
-          <p className="text-lg text-brand-muted">
-            Explore the products we have built, from scalable full-stack applications and AI-driven platforms to decentralized Web3 apps.
-          </p>
-        </div>
+          <div
+            className={styles.carousel}
+            style={{ "--items": products.length } as React.CSSProperties}
+          >
+            {products.map((product, i) => (
+              <div
+                key={product.title}
+                ref={(el) => {
+                  itemRefs.current[i] = el
+                }}
+                className={`${styles.carouselItem} ${i === active ? styles.isActive : ""}`}
+                onClick={() => goTo(i)}
+              >
+                <div className={styles.carouselBox}>
+                  <span className={styles.num}>0{i + 1}</span>
+                  <div className={styles.iconWrap}>
+                  </div>
+                  <h3 className={styles.title}>{product.title}</h3>
+                  <p className={styles.tagline}>{product.tagline}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {products.map((product, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
-              className="group glass rounded-2xl p-6 border border-brand-primary/20 hover:border-brand-primary/50 transition-all flex flex-col h-full relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-black/40 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <FolderGit2 className="text-brand-primary" size={24} />
+                  {i === active && (
+                    <a
+                      href={product.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className={styles.link}
+                    >
+                      View Project <RiArrowRightUpLine size={16} />
+                    </a>
+                  )}
                 </div>
-                
-                <h3 className="text-xl font-bold text-brand-text mb-1 group-hover:text-brand-secondary transition-colors">{product.title}</h3>
-                <p className="text-sm font-medium text-brand-primary/80 mb-4">{product.tagline}</p>
-                <p className="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">
-                  {product.summary}
-                </p>
-
-                <a 
-                  href={product.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-text hover:text-brand-secondary transition-colors mt-auto w-max"
-                >
-                  View Project <ArrowUpRight size={16} />
-                </a>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
+
+          <div className="site-container relative z-10 flex items-center justify-center gap-1.5 mt-8">
+            {products.map((product, i) => (
+              <button
+                key={product.title}
+                type="button"
+                aria-label={`Go to ${product.title}`}
+                className={`${styles.dot} ${i === active ? styles.dotActive : ""}`}
+                onClick={() => goTo(i)}
+              />
+            ))}
+          </div>
+
+          <p className="u-mono text-center text-brand-muted mt-4">
+            0{active + 1} / {products.length} — keep scrolling to browse
+          </p>
         </div>
       </div>
     </section>
