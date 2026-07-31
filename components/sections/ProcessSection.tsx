@@ -40,7 +40,7 @@ const steps = [
   },
 ]
 
-function StepIcon({ Icon, isActive, size, className = "" }) {
+function StepIcon({ Icon, isActive, size, className = "" }: { Icon: React.ElementType, isActive: boolean, size: number, className?: string }) {
   return (
     <div
       className={`relative z-10 flex items-center justify-center glass transition-all duration-500 ease-out ${isActive ? "border-brand-primary scale-105" : "border-brand-primary/30"
@@ -59,7 +59,7 @@ function StepIcon({ Icon, isActive, size, className = "" }) {
 
 export function ProcessSection() {
   // ----- Desktop: pinned horizontal scroll -----
-  const pinRef = React.useRef(null)
+  const pinRef = React.useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = React.useState(-1)
 
   const { scrollYProgress } = useScroll({
@@ -75,7 +75,7 @@ export function ProcessSection() {
   })
 
   // ----- Mobile: pinned vertical scroll -----
-  const mobilePinRef = React.useRef(null)
+  const mobilePinRef = React.useRef<HTMLDivElement>(null)
   const [mobileActiveIndex, setMobileActiveIndex] = React.useState(-1)
   const [segmentProgress, setSegmentProgress] = React.useState(0)
 

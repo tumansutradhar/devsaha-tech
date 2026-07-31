@@ -1,3 +1,4 @@
+import Script from "next/script"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/sections/HeroSection"
@@ -9,12 +10,34 @@ import { PortfolioSection } from "@/components/sections/PortfolioSection"
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
 import { AboutTeam } from "@/components/sections/AboutTeam"
 import { Testimonials } from "@/components/sections/Testimonials"
-// import { Estimator } from "@/components/sections/Estimator"
 import { ContactCTA } from "@/components/sections/ContactCTA"
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DevSaha Tech",
+    "image": "https://www.devsaha.tech/og-image.png",
+    "@id": "https://www.devsaha.tech",
+    "url": "https://www.devsaha.tech",
+    "telephone": "+91 62951 11477",
+    "email": "info@devsaha.tech",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Katwa, Bardhaman",
+      "addressRegion": "West Bengal",
+      "addressCountry": "IN"
+    },
+    "description": "DevSaha Tech is a top-rated software and full stack website development company in Bardhaman, Katwa, and West Bengal.",
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-brand-background text-brand-text">
+      <Script
+        id="schema-local-business"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

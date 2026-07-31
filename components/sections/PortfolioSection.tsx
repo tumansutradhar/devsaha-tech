@@ -6,12 +6,12 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 import styles from "./PortfolioCarousel.module.css"
 
 const products = [
-  {
-    title: "BlocMentor",
-    tagline: "Decentralized AI-Powered Tutor Booking Platform",
-    summary: "A Web3-based tutoring platform combining blockchain, smart contracts, and AI to create a secure, transparent, and personalized online learning experience.",
-    link: "https://github.com/tumansutradhar/bloc_mentor"
-  },
+  // {
+  //   title: "BlocMentor",
+  //   tagline: "Decentralized AI-Powered Tutor Booking Platform",
+  //   summary: "A Web3-based tutoring platform combining blockchain, smart contracts, and AI to create a secure, transparent, and personalized online learning experience.",
+  //   link: "https://github.com/tumansutradhar/bloc_mentor"
+  // },
   {
     title: "CB AI",
     tagline: "AI-Based Road Debris and Garbage Detection System",
@@ -30,24 +30,24 @@ const products = [
     summary: "A full-stack MERN application for managing courses, assignments, attendance, and grades with role-based access control.",
     link: "https://edu-manage-app.vercel.app/"
   },
-  {
-    title: "Gronur",
-    tagline: "Grocery Mobile UI Kit",
-    summary: "A production-ready mobile grocery & food delivery UI kit rebuilt from a premium Figma design system.",
-    link: "https://www.figma.com/design/4G7Ibgp46WQghWFN4b0PqP/Tuman-Sutradhar-%7C-Gronur-Grocery-App-UI-Kit?node-id=45-2&t=DuvQm7JNNqvK1qmk-1"
-  },
-  {
-    title: "Inbox3",
-    tagline: "Decentralized Messaging on Aptos",
-    summary: "A decentralized messaging application built on the Aptos blockchain with IPFS storage for message content and end-to-end encryption.",
-    link: "https://github.com/tumansutradhar/inbox3"
-  },
-  {
-    title: "MED+",
-    tagline: "Modern Hospital Management System",
-    summary: "A full-stack hospital management platform that digitizes patient care, streamlines medical workflows, and enhances healthcare delivery.",
-    link: "https://github.com/tumansutradhar/med_plus"
-  },
+  // {
+  //   title: "Gronur",
+  //   tagline: "Grocery Mobile UI Kit",
+  //   summary: "A production-ready mobile grocery & food delivery UI kit rebuilt from a premium Figma design system.",
+  //   link: "https://www.figma.com/design/4G7Ibgp46WQghWFN4b0PqP/Tuman-Sutradhar-%7C-Gronur-Grocery-App-UI-Kit?node-id=45-2&t=DuvQm7JNNqvK1qmk-1"
+  // },
+  // {
+  //   title: "Inbox3",
+  //   tagline: "Decentralized Messaging on Aptos",
+  //   summary: "A decentralized messaging application built on the Aptos blockchain with IPFS storage for message content and end-to-end encryption.",
+  //   link: "https://github.com/tumansutradhar/inbox3"
+  // },
+  // {
+  //   title: "MED+",
+  //   tagline: "Modern Hospital Management System",
+  //   summary: "A full-stack hospital management platform that digitizes patient care, streamlines medical workflows, and enhances healthcare delivery.",
+  //   link: "https://github.com/tumansutradhar/med_plus"
+  // },
   {
     title: "PaintX",
     tagline: "A Lightweight Web-Based Drawing App",

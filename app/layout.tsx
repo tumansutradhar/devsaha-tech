@@ -25,27 +25,26 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://devsaha.tech'),
   title: {
-    default: 'DevSaha Tech — Full Stack Web Development & Backend Engineering',
+    default: 'DevSaha Tech — Best Website Development Company in Bardhaman, Katwa & West Bengal',
     template: '%s | DevSaha Tech',
   },
   description:
-    'DevSaha Tech is a software agency based in Katwa, West Bengal, India. We build high-performance full-stack web apps, REST & GraphQL APIs, and scalable database architectures using Python, Django, Node.js, Next.js, and PostgreSQL.',
+    'DevSaha Tech is a premier software and full stack web development company based in Katwa, Bardhaman, West Bengal. We build high-performance web apps, budget websites, REST & GraphQL APIs, and scalable backends.',
   keywords: [
+    'DevSaha Tech',
+    'dev saha tech',
+    'website development company',
+    'full stack development company',
+    'budget website dev company',
+    'best website dev company in bardhaman',
+    'best website dev company in katwa',
+    'best website dev company in west bengal',
     'software development agency India',
-    'full stack web development',
-    'Django REST API',
-    'Node.js backend development',
-    'Next.js web app',
-    'PostgreSQL optimization',
     'web development Katwa',
     'West Bengal software company',
-    'DevSaha Tech',
-    'Ranadeb Saha developer',
     'hire web developer India',
-    'custom software development',
     'React developer India',
-    'scalable API development',
-    'mobile app development India',
+    'custom software development',
   ],
   authors: [{ name: 'Ranadeb Saha', url: 'https://devsaha.tech' }],
   creator: 'DevSaha Tech',
@@ -100,7 +99,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: 'google-site-verification-placeholder',
+    google: 'f2R3gwFs8Uzia-A8yOG-xnr1ddQUjauh5EBWfRh-KRs',
   },
 }
 
