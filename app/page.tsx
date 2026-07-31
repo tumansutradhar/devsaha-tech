@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { TrustBar } from "@/components/sections/TrustBar"
 import { ProblemSolution } from "@/components/sections/ProblemSolution"
@@ -9,7 +9,7 @@ import { PortfolioSection } from "@/components/sections/PortfolioSection"
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
 import { AboutTeam } from "@/components/sections/AboutTeam"
 import { Testimonials } from "@/components/sections/Testimonials"
-import { Estimator } from "@/components/sections/Estimator"
+// import { Estimator } from "@/components/sections/Estimator"
 import { ContactCTA } from "@/components/sections/ContactCTA"
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
         <Testimonials />
 
         {/* 10. Estimator — Cost Transparency */}
-        <Estimator />
+        {/* <Estimator /> */}
 
         {/* 11. Contact CTA — Conversion */}
         <ContactCTA />

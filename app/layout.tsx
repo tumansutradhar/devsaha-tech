@@ -1,9 +1,29 @@
 import type { Metadata } from 'next'
+import { Archivo, Archivo_Black, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  variable: '--font-archivo',
+  display: 'swap',
+})
+
+const archivoBlack = Archivo_Black({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-archivo-black',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://devsahatech.com'),
+  metadataBase: new URL('https://devsaha.tech'),
   title: {
     default: 'DevSaha Tech — Full Stack Web Development & Backend Engineering',
     template: '%s | DevSaha Tech',
@@ -27,7 +47,7 @@ export const metadata: Metadata = {
     'scalable API development',
     'mobile app development India',
   ],
-  authors: [{ name: 'Ranadeb Saha', url: 'https://devsahatech.com' }],
+  authors: [{ name: 'Ranadeb Saha', url: 'https://devsaha.tech' }],
   creator: 'DevSaha Tech',
   publisher: 'DevSaha Tech',
   robots: {
@@ -44,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://devsahatech.com',
+    url: 'https://devsaha.tech',
     siteName: 'DevSaha Tech',
     title: 'DevSaha Tech — Full Stack Web Development & Backend Engineering',
     description:
@@ -67,12 +87,17 @@ export const metadata: Metadata = {
     creator: '@devsahatech',
   },
   alternates: {
-    canonical: 'https://devsahatech.com',
+    canonical: 'https://devsaha.tech',
   },
   icons: {
-    icon: '/logo-icon.png',
-    shortcut: '/logo-icon.png',
-    apple: '/logo-icon.png',
+    icon: [
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico?v=2',
+    apple: [
+      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
+    ],
   },
   verification: {
     google: 'google-site-verification-placeholder',
@@ -85,7 +110,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`dark scroll-smooth ${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="antialiased font-sans">
         <ThemeProvider
           attribute="class"

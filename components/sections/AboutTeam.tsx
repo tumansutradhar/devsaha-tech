@@ -3,9 +3,8 @@
 import * as React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { GitBranch, Globe } from "lucide-react"
-
-
+import { IoGlobeOutline } from "react-icons/io5";
+import { FaLinkedinIn, } from "react-icons/fa6";
 
 const team = [
   {
@@ -14,7 +13,6 @@ const team = [
     bio: "Ranadeb built DevSaha Tech with one mission: to deliver engineering that actually works in production. He architects scalable backends, leads client engagements, and writes code that ships on time.",
     image: "/team-ranadeb.png",
     linkedin: "#",
-    github: "#",
     portfolio: "https://ranadebsaha.netlify.app/",
     gradient: "from-brand-primary/20 to-brand-secondary/10",
   },
@@ -24,7 +22,6 @@ const team = [
     bio: "Tuman bridges the gap between business goals and user experience. He crafts interfaces that are both visually sharp and deeply intuitive — turning complex flows into simple, beautiful products.",
     image: "/team-tuman.png",
     linkedin: "#",
-    github: "#",
     portfolio: "https://tumansutradhar.me",
     gradient: "from-blue-500/20 to-brand-primary/10",
   },
@@ -34,25 +31,24 @@ const team = [
     bio: "Sharanya is the team's execution engine — building clean, type-safe frontend systems and integrating APIs with precision. He ensures every feature we ship is bulletproof on all devices.",
     image: "/team-sharanya-v2.png",
     linkedin: "#",
-    github: "#",
     portfolio: "https://www.sharanya.tech/",
     gradient: "from-brand-secondary/20 to-blue-500/10",
   },
 ]
 
 const stats = [
-  { value: "2022", label: "Founded" },
+  { value: "2026", label: "Founded" },
   { value: "3+", label: "Core Team" },
-  { value: "50+", label: "Projects Delivered" },
+  { value: "5+", label: "Projects Delivered" },
   { value: "India", label: "Based In" },
 ]
 
 export function AboutTeam() {
   return (
-    <section id="about" className="py-24 bg-brand-background">
-      <div className="container mx-auto px-4">
+    <section id="about" className="section-spacing bg-brand-background">
+      <div className="site-container">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 items-end mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-end mb-12 sm:mb-16">
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4 leading-tight">
               The team behind your product
@@ -89,14 +85,14 @@ export function AboutTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative rounded-2xl overflow-hidden glass border-brand-border/40 group"
+              className="relative overflow-hidden glass-card group"
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
               <div className="relative p-6">
                 {/* Avatar */}
-                <div className="w-20 h-20 rounded-xl overflow-hidden mb-4 ring-2 ring-brand-primary/30 group-hover:ring-brand-primary/60 transition-all duration-300">
+                <div className="w-20 h-20 overflow-hidden mb-4 ring-2 ring-brand-primary/30 group-hover:ring-brand-primary/60 transition-all duration-300">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -116,24 +112,17 @@ export function AboutTeam() {
                     href={member.portfolio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all"
+                    className="icon-chip-sm hover:bg-brand-primary/20 hover:border-brand-primary/50"
                     title={`${member.name}'s Portfolio`}
                   >
-                    <Globe size={14} className="text-brand-secondary" />
+                    <IoGlobeOutline size={14} />
                   </a>
                   <a
                     href={member.linkedin}
-                    className="w-8 h-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all"
+                    className="icon-chip-sm hover:bg-brand-primary/20 hover:border-brand-primary/50"
                     aria-label={`${member.name} on LinkedIn`}
                   >
-                    <Globe size={14} className="text-brand-secondary" />
-                  </a>
-                  <a
-                    href={member.github}
-                    className="w-8 h-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all"
-                    aria-label={`${member.name} on GitHub`}
-                  >
-                    <GitBranch size={14} className="text-brand-secondary" />
+                    <FaLinkedinIn size={14} />
                   </a>
                 </div>
               </div>

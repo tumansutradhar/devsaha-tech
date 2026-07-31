@@ -18,7 +18,7 @@ export async function loginAdmin(formData: FormData) {
     if (users.length > 0) {
       const user = users[0];
       const isValid = bcrypt.compareSync(password, user.password_hash);
-      
+
       if (isValid) {
         // Set cookie
         const cookieStore = await cookies();

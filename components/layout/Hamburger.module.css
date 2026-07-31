@@ -1,0 +1,45 @@
+.ham {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.bar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 0;
+    transition: transform 300ms ease, opacity 200ms ease;
+    will-change: transform;
+}
+
+.bar:nth-child(1) {
+    transform: translateY(-6px);
+}
+
+.bar:nth-child(2) {
+    transform: translateY(0);
+}
+
+.bar:nth-child(3) {
+    transform: translateY(6px);
+}
+
+/* Active (X) state */
+.active .bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateY(0) scaleX(0);
+}
+
+.active .bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
