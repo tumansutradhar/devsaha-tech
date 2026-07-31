@@ -43,7 +43,7 @@ const differentiators = [
 
 export function WhyChooseUs() {
   return (
-    <section id="why-us" className="section-spacing relative overflow-hidden">
+    <section id="why-us" className="section-spacing relative overflow-hidden pb-0!">
       <div className="absolute inset-0 bg-cyber-grid z-0 opacity-20" />
 
       <div className="site-container relative z-10">
@@ -54,7 +54,7 @@ export function WhyChooseUs() {
           <p className="text-lg text-brand-muted leading-relaxed mb-8">
             There are hundreds of dev agencies. Here&apos;s what makes us the ones our clients return to — and refer.
           </p>
-          <div className="inline-flex items-center gap-3 px-5 py-3 glass-card">
+          <div className="inline-flex items-center gap-3 px-5 py-3">
             <div className="w-2 h-2 rounded-full bg-brand-success animate-pulse" />
             <span className="text-sm text-brand-text font-medium">Currently accepting new projects</span>
           </div>
@@ -71,9 +71,9 @@ export function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="relative p-6 min-h-55 bg-brand-surface border border-brand-border/40 hover:border-brand-primary/40 transition-all duration-300 group flex flex-col"
+                className="relative p-6 min-h-55 bg-brand-surface border border-brand-primary group flex flex-col"
               >
-                <div className="icon-chip mb-4 group-hover:neon-glow shrink-0">
+                <div className="icon-chip mb-4 shrink-0 bg-brand-primary">
                   <Icon size={20} strokeLinecap="square" strokeLinejoin="miter" className="text-brand-secondary" />
                 </div>
                 <h3 className="font-bold text-brand-text mb-2">{item.title}</h3>

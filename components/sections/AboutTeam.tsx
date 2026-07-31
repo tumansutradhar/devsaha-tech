@@ -3,8 +3,8 @@
 import * as React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { IoGlobeOutline } from "react-icons/io5";
-import { FaLinkedinIn, } from "react-icons/fa6";
+import { IoGlobeOutline, IoMailSharp } from "react-icons/io5";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 const team = [
   {
@@ -13,6 +13,7 @@ const team = [
     bio: "Ranadeb built DevSaha Tech with one mission: to deliver engineering that actually works in production. He architects scalable backends, leads client engagements, and writes code that ships on time.",
     image: "/team-ranadeb.png",
     linkedin: "#",
+    email: "mailto:",
     portfolio: "https://ranadebsaha.netlify.app/",
     gradient: "from-brand-primary/20 to-brand-secondary/10",
   },
@@ -22,6 +23,7 @@ const team = [
     bio: "Tuman bridges the gap between business goals and user experience. He crafts interfaces that are both visually sharp and deeply intuitive — turning complex flows into simple, beautiful products.",
     image: "/team-tuman.png",
     linkedin: "#",
+    email: "mailto:",
     portfolio: "https://tumansutradhar.me",
     gradient: "from-blue-500/20 to-brand-primary/10",
   },
@@ -31,6 +33,7 @@ const team = [
     bio: "Sharanya is the team's execution engine — building clean, type-safe frontend systems and integrating APIs with precision. He ensures every feature we ship is bulletproof on all devices.",
     image: "/team-sharanya-v2.png",
     linkedin: "#",
+    email: "mailto:",
     portfolio: "https://www.sharanya.tech/",
     gradient: "from-brand-secondary/20 to-blue-500/10",
   },
@@ -85,12 +88,10 @@ export function AboutTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative overflow-hidden glass-card group"
+              className="relative overflow-hidden glass-card group flex flex-col"
             >
-              {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-              <div className="relative p-6">
+              <div className="relative p-6 flex flex-col flex-1">
                 {/* Avatar */}
                 <div className="w-20 h-20 overflow-hidden mb-4 ring-2 ring-brand-primary/30 group-hover:ring-brand-primary/60 transition-all duration-300">
                   <Image
@@ -106,23 +107,29 @@ export function AboutTeam() {
                 <p className="text-brand-secondary text-sm font-medium mb-3">{member.role}</p>
                 <p className="text-brand-muted text-sm leading-relaxed mb-5">{member.bio}</p>
 
-                {/* Social Links */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-auto">
                   <a
                     href={member.portfolio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="icon-chip-sm hover:bg-brand-primary/20 hover:border-brand-primary/50"
+                    className="icon-chip-sm text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary"
                     title={`${member.name}'s Portfolio`}
                   >
                     <IoGlobeOutline size={14} />
                   </a>
                   <a
                     href={member.linkedin}
-                    className="icon-chip-sm hover:bg-brand-primary/20 hover:border-brand-primary/50"
+                    className="icon-chip-sm text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <FaLinkedinIn size={14} />
+                  </a>
+                  <a
+                    href={member.email}
+                    className="icon-chip-sm text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary"
+                    aria-label={`Email ${member.name}`}
+                  >
+                    <IoMailSharp size={14} />
                   </a>
                 </div>
               </div>

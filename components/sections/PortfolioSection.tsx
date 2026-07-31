@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Button } from "@/components/ui/button"
 import { RiArrowRightUpLine } from "react-icons/ri";
 import styles from "./PortfolioCarousel.module.css"
 
@@ -148,14 +149,14 @@ export function PortfolioSection() {
   }
 
   return (
-    <section id="portfolio" className="relative bg-black py-20">
+    <section id="portfolio" className="relative bg-black">
       <div
         ref={wrapperRef}
         style={{ height: `${TOP_OFFSET + stickyHeight + SCRUB_PX}px` }}
         className="relative"
       >
         <div ref={stickyRef} className="sticky bg-black" style={{ top: TOP_OFFSET }}>
-          <div className="site-container relative z-10 mb-10 text-center max-w-2xl mx-auto px-4">
+          <div className="site-container relative z-10 text-center max-w-2xl mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-brand-text">
               Our Products & Work
             </h2>
@@ -185,22 +186,24 @@ export function PortfolioSection() {
                   <p className={styles.tagline}>{product.tagline}</p>
 
                   {i === active && (
-                    <a
-                      href={product.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Button
+                      asChild
+                      variant="primary"
+                      size="sm"
+                      className="mt-3 self-start"
                       onClick={(e) => e.stopPropagation()}
-                      className={styles.link}
                     >
-                      View Project <RiArrowRightUpLine size={16} />
-                    </a>
+                      <a href={product.link} target="_blank" rel="noopener noreferrer">
+                        View Project <RiArrowRightUpLine size={16} />
+                      </a>
+                    </Button>
                   )}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="site-container relative z-10 flex items-center justify-center gap-1.5 mt-8">
+          <div className="site-container relative z-10 flex items-center justify-center gap-1.5">
             {products.map((product, i) => (
               <button
                 key={product.title}
