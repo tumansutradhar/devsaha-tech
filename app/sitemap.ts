@@ -3,20 +3,20 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://www.devsaha.tech',
-      lastModified: new Date(),
+      url: 'https://devsaha.tech',
+      lastModified: '2026-08-01',
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://www.devsaha.tech/privacy',
-      lastModified: new Date(),
+      url: 'https://devsaha.tech/privacy',
+      lastModified: '2026-08-01',
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: 'https://www.devsaha.tech/terms',
-      lastModified: new Date(),
+      url: 'https://devsaha.tech/terms',
+      lastModified: '2026-08-01',
       changeFrequency: 'yearly',
       priority: 0.5,
     },

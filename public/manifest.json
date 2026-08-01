@@ -1,0 +1,21 @@
+{
+  "name": "DevSaha Tech",
+  "short_name": "DevSaha",
+  "description": "Full Stack Web Development & Backend Engineering — Based in West Bengal, India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#7C3AED",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     'custom software development',
   ],
   authors: [{ name: 'Ranadeb Saha', url: 'https://devsaha.tech' }],
+  category: 'technology',
   creator: 'DevSaha Tech',
   publisher: 'DevSaha Tech',
   robots: {
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
       'We build high-performance web apps, REST APIs, and scalable backends. Based in West Bengal, India. Trusted by startups and businesses across India.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'DevSaha Tech — Full Stack Web Development Agency',
@@ -82,7 +83,7 @@ export const metadata: Metadata = {
     title: 'DevSaha Tech — Full Stack Web Development & Backend Engineering',
     description:
       'High-performance web apps, REST APIs, and scalable backends. Based in West Bengal, India.',
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
     creator: '@devsahatech',
   },
   alternates: {
@@ -98,6 +99,7 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
     ],
   },
+  manifest: '/manifest.json',
   verification: {
     google: 'f2R3gwFs8Uzia-A8yOG-xnr1ddQUjauh5EBWfRh-KRs',
   },
@@ -112,6 +114,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`dark scroll-smooth ${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased font-sans">
