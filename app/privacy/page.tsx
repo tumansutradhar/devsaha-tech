@@ -9,6 +9,9 @@ import { CgArrowLeft } from "react-icons/cg";
 export const metadata: Metadata = {
   title: 'Privacy Policy | DevSaha Tech',
   description: 'Privacy Policy for DevSaha Tech. Learn how we collect, use, and protect your data.',
+  alternates: {
+    canonical: 'https://devsaha.tech/privacy',
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -31,7 +34,7 @@ export default function PrivacyPolicy() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-8">Privacy Policy</h1>
-          <p className="text-brand-muted mb-8">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p className="text-brand-muted mb-8">Last Updated: August 1, 2026</p>
 
           <div className="prose prose-invert prose-brand max-w-none space-y-6 text-brand-muted/90">
             <section>

@@ -9,6 +9,9 @@ import { CgArrowLeft } from "react-icons/cg";
 export const metadata: Metadata = {
   title: 'Terms of Service | DevSaha Tech',
   description: 'Terms of Service for DevSaha Tech. Read our rules, guidelines, and agreements for using our services.',
+  alternates: {
+    canonical: 'https://devsaha.tech/terms',
+  },
 };
 
 export default function TermsOfService() {
@@ -31,7 +34,7 @@ export default function TermsOfService() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-8">Terms of Service</h1>
-          <p className="text-brand-muted mb-8">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p className="text-brand-muted mb-8">Last Updated: August 1, 2026</p>
 
           <div className="prose prose-invert prose-brand max-w-none space-y-6 text-brand-muted/90">
             <section>
