@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Archivo, Archivo_Black, JetBrains_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 
@@ -118,6 +119,24 @@ export default function RootLayout({
       className={`dark scroll-smooth ${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased font-sans">
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-66X98GV824"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-66X98GV824', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
