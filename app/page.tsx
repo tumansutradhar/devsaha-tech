@@ -2,15 +2,17 @@ import Script from "next/script"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/sections/HeroSection"
-import { TrustBar } from "@/components/sections/TrustBar"
-import { ProblemSolution } from "@/components/sections/ProblemSolution"
-import { ServicesGrid } from "@/components/sections/ServicesGrid"
-import { ProcessSection } from "@/components/sections/ProcessSection"
-import { PortfolioSection } from "@/components/sections/PortfolioSection"
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
-import { AboutTeam } from "@/components/sections/AboutTeam"
-import { Testimonials } from "@/components/sections/Testimonials"
-import { ContactCTA } from "@/components/sections/ContactCTA"
+import dynamic from 'next/dynamic'
+
+const TrustBar = dynamic(() => import("@/components/sections/TrustBar").then(mod => mod.TrustBar))
+const ProblemSolution = dynamic(() => import("@/components/sections/ProblemSolution").then(mod => mod.ProblemSolution))
+const ServicesGrid = dynamic(() => import("@/components/sections/ServicesGrid").then(mod => mod.ServicesGrid))
+const ProcessSection = dynamic(() => import("@/components/sections/ProcessSection").then(mod => mod.ProcessSection))
+const PortfolioSection = dynamic(() => import("@/components/sections/PortfolioSection").then(mod => mod.PortfolioSection))
+const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs").then(mod => mod.WhyChooseUs))
+const AboutTeam = dynamic(() => import("@/components/sections/AboutTeam").then(mod => mod.AboutTeam))
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials))
+const ContactCTA = dynamic(() => import("@/components/sections/ContactCTA").then(mod => mod.ContactCTA))
 
 export default function Home() {
   const localBusinessJsonLd = {
